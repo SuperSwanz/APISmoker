@@ -14,6 +14,7 @@ plugins {
   id 'eclipse'
   id 'application'
   id 'jacoco'
+  id "org.sonarqube" version "3.3"
 }
 
 repositories {
@@ -50,6 +51,14 @@ dependencies {
 
 task wrapper(type: Wrapper) {
 	gradleVersion = gradleVersion
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "SuperSwanz_APISmoker"
+    property "sonar.organization", "superswanz"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
  
 jacocoTestReport {
