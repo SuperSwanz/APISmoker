@@ -23,17 +23,6 @@ repositories {
 
 mainClassName = 'com.apismoker.launcher.APISmokerLauncher'
 
-shadowJar {
-	baseName = 'APISmoker'
-	version = '0.0.1'
-    classifier = 'fat'
-    manifest {
-        attributes 'Main-Verticle': 'com.apismoker.verticle.MainVerticle'
-    }
-    mergeServiceFiles {
-        include 'META-INF/services/io.vertx.core.spi.VerticleFactory'
-    }
-}
 
 dependencies {
     implementation "io.vertx:vertx-rx-java:${vertxVersion}",
@@ -51,20 +40,3 @@ sonarqube {
     property "sonar.host.url", "https://sonarcloud.io"
   }
 }
- 
-jacocoTestReport {
-	group = "Reporting"
-	reports {
-		xml.enabled true
-		csv.enabled false
-		html.destination "${buildDir}/reports/coverage"
-	}
-
-	afterEvaluate {
-		classDirectories = files(classDirectories.files.collect {
-			fileTree(dir: it, exclude: ['com/apismoker/constant/*'])
-		})
-	}
-}
-
-check.dependsOn jacocoTestReport
