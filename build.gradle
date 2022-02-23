@@ -35,11 +35,6 @@ shadowJar {
     }
 }
 
-compileJava {
-	targetCompatibility = sourceJavaVersion
-	sourceCompatibility = targetJavaVersion
-}
-
 dependencies {
     compile "io.vertx:vertx-rx-java:${vertxVersion}",
 			"io.vertx:vertx-web:${vertxVersion}",
