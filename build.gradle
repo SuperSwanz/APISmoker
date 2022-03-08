@@ -33,6 +33,7 @@ dependencies {
 	testImplementation "io.vertx:vertx-unit:${vertxVersion}"		
 }
 
+
 sonarqube {
   properties {
     property "sonar.projectKey", "SuperSwanz_APISmoker"
